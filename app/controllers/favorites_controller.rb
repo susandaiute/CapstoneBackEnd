@@ -31,7 +31,7 @@ class FavoritesController < ApplicationController
   # PATCH/PUT /favorites/1.json
   def update
     # @favorite = Favorite.find(params[:id])
-    #pollpanda did not have above line  ???
+    # pollpanda did not have above line  ???
     if @favorite.update(favorite_params)
       head :no_content
     else
@@ -49,11 +49,11 @@ class FavoritesController < ApplicationController
 
   # private
 
-    def set_favorite
-      @favorite = current_user.favorites.find(params[:id])
-    end
+  def set_favorite
+    @favorite = current_user.favorites.find(params[:id])
+  end
 
-    def favorite_params
-      params.require(:favorite).permit(:name, :location, :breed, :type, :age, :gender)
-    end
+  def favorite_params
+    params.require(:favorite).permit(:name, :location, :breed, :type, :age, :gender)
+  end
 end
