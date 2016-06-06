@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
   # GET /favorites
   # GET /favorites.json
   def index
-    @favorites = Favorite.all
+    @favorites = current_user.favorites
 
     render json: @favorites
   end
@@ -12,13 +12,13 @@ class FavoritesController < ApplicationController
   # GET /favorites/1
   # GET /favorites/1.json
   def show
-    render json: @favorite
+    render json: Favorite.find(params[:id])
   end
 
   # POST /favorites
   # POST /favorites.json
   def create
-    @favorite = Favorite.new(favorite_params)
+    @favorite = current_user.favorites.build(favorite_params)
 
     if @favorite.save
       render json: @favorite, status: :created, location: @favorite
@@ -30,8 +30,8 @@ class FavoritesController < ApplicationController
   # PATCH/PUT /favorites/1
   # PATCH/PUT /favorites/1.json
   def update
-    @favorite = Favorite.find(params[:id])
-
+    # @favorite = Favorite.find(params[:id])
+    #pollpanda did not have above line  ???
     if @favorite.update(favorite_params)
       head :no_content
     else
@@ -47,10 +47,10 @@ class FavoritesController < ApplicationController
     head :no_content
   end
 
-  private
+  # private
 
     def set_favorite
-      @favorite = Favorite.find(params[:id])
+      @favorite = current_user.favorites.find(params[:id])
     end
 
     def favorite_params
