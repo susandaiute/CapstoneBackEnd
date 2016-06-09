@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160606002229) do
   create_table "favorites", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "description", null: false
+    t.boolean  "application"
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

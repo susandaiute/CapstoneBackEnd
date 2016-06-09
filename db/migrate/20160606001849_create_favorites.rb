@@ -3,6 +3,7 @@ class CreateFavorites < ActiveRecord::Migration
     create_table :favorites do |t|
       t.string :name, null: false
       t.string :description, null: false
+      t.boolean :application
 
       t.references :user, index: true, foreign_key: true, null: false
 

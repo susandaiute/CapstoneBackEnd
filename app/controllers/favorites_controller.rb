@@ -54,6 +54,6 @@ class FavoritesController < OpenReadController
   end
 
   def favorite_params
-    params.require(:favorite).permit(:name, :description, :user_id)
+    params.require(:favorite).permit(:name, :description, :user_id, :application)
   end
 end
