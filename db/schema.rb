@@ -26,15 +26,11 @@ ActiveRecord::Schema.define(version: 20160606002229) do
   add_index "examples", ["user_id"], name: "index_examples_on_user_id", using: :btree
 
   create_table "favorites", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "location",   null: false
-    t.string   "breed",      null: false
-    t.string   "type",       null: false
-    t.integer  "age",        null: false
-    t.string   "gender",     null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "creator_id"
   end
 
