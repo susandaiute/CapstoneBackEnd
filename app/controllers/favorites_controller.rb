@@ -1,5 +1,5 @@
-class FavoritesController < ApplicationController
-  before_action :set_favorite, only: [:show, :update, :destroy]
+class FavoritesController < OpenReadController
+  before_action :set_favorite
 
   # GET /favorites
   # GET /favorites.json
@@ -54,6 +54,6 @@ class FavoritesController < ApplicationController
   end
 
   def favorite_params
-    params.require(:favorite).permit(:name, :location, :breed, :type, :age, :gender)
+    params.require(:name, :description, :user_id)
   end
 end
