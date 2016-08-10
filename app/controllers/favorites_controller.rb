@@ -31,7 +31,6 @@ class FavoritesController < OpenReadController
   # PATCH/PUT /favorites/1.json
   def update
     # @favorite = Favorite.find(params[:id])
-    # pollpanda did not have above line  ???
     if @favorite.update(favorite_params)
       head :no_content
     else
